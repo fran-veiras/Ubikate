@@ -3,21 +3,20 @@ import React from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
 import { HiLocationMarker } from 'react-icons/hi';
 import L from 'leaflet';
-import location from '../../public/location.svg';
+
+L.Icon.Default.mergeOptions({
+  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
+  iconUrl: require('leaflet/dist/images/marker-icon.png'),
+  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+});
 
 export default function FrontMap() {
-  const position = [51.505, -0.09];
-
-  L.Icon.Default.mergeOptions({
-    iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-    iconUrl: require('leaflet/dist/images/marker-icon.png'),
-    shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-  });
+  const position = [-34.6083, -58.371234];
 
   return (
     <MapContainer
       center={position}
-      zoom={7}
+      zoom={11}
       scrollWheelZoom={false}
       style={{ height: 700, width: '100%' }}
     >
@@ -29,7 +28,11 @@ export default function FrontMap() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      <Marker position={position}></Marker>
+      <Marker position={position}>
+        <Popup>
+          A pretty CSS3 popup. <br /> Easily customizable.
+        </Popup>
+      </Marker>
     </MapContainer>
   );
 }

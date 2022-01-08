@@ -4,23 +4,19 @@ import { HiWifi, HiLocationMarker, HiCash } from 'react-icons/hi';
 
 export const CardRecomendation = ({ place }) => {
   return (
-    <Flex width="100%" gridGap={5}>
+    <Flex gridGap={5}>
       <Box
         boxShadow="md"
         background="#fff"
         borderRadius="15px"
-        width={{
-          base: '100%', // 0-48em
-          md: '100%', // 48em-80em,
-          xl: '70%', // 80em+
-          '2xl': '60%',
-        }}
+        width="100%"
         justifyContent="space-between"
         alignItems="center"
         py={4}
         px={8}
         display="flex"
         flexDir="row"
+        gridGap={3}
       >
         <Icon
           color="fourth"
