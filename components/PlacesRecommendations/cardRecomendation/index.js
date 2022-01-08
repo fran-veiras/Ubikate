@@ -1,8 +1,16 @@
 import { Box, Flex, Icon, Text } from '@chakra-ui/react';
 import React from 'react';
 import { HiWifi, HiLocationMarker, HiCash } from 'react-icons/hi';
+import { useDispatch } from 'react-redux';
+import * as locationActions from '../../../app/locationReducer/locationReducer';
 
 export const CardRecomendation = ({ place }) => {
+  const dispatch = useDispatch();
+
+  const handleLocations = () => {
+    dispatch(locationActions.getData());
+  };
+
   return (
     <Flex gridGap={5}>
       <Box
@@ -17,6 +25,7 @@ export const CardRecomendation = ({ place }) => {
         display="flex"
         flexDir="row"
         gridGap={3}
+        onClick={handleLocations}
       >
         <Icon
           color="fourth"

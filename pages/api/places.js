@@ -1,5 +1,6 @@
 const places = [
   {
+    id: 1,
     name: 'Starbucks',
     location: 'Av. siempre viva 283',
     type: 'Cafeteria',
@@ -7,6 +8,7 @@ const places = [
     price: 'consumición',
   },
   {
+    id: 2,
     name: 'Café martinez',
     location: 'Presidente Menem 483',
     type: 'Cafeteria',
@@ -14,6 +16,7 @@ const places = [
     price: 'consumición',
   },
   {
+    id: 3,
     name: 'We work',
     location: 'San sebastian torrico 123',
     type: 'Co-work',
@@ -21,6 +24,7 @@ const places = [
     price: 'pago',
   },
   {
+    id: 4,
     name: 'Plaza alsina',
     location: 'Rivadavia 83',
     type: 'Plaza',
@@ -28,6 +32,7 @@ const places = [
     price: 'gratis',
   },
   {
+    id: 5,
     name: 'Bar resto',
     location: 'Callao 1220',
     type: 'Bar',
