@@ -7,8 +7,10 @@ import * as locationActions from '../../../app/locationReducer/locationReducer';
 export const CardRecomendation = ({ place }) => {
   const dispatch = useDispatch();
 
+  const id = place.id;
+
   const handleLocations = () => {
-    dispatch(locationActions.getData());
+    dispatch(locationActions.getData(id));
   };
 
   return (

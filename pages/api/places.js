@@ -6,6 +6,7 @@ const places = [
     type: 'Cafeteria',
     wifi: 'si',
     price: 'consumición',
+    coords: [-34.6083, -58.371234],
   },
   {
     id: 2,
@@ -14,6 +15,7 @@ const places = [
     type: 'Cafeteria',
     wifi: 'si',
     price: 'consumición',
+    coords: [-34.6083, -54.371234],
   },
   {
     id: 3,
@@ -22,6 +24,7 @@ const places = [
     type: 'Co-work',
     wifi: 'si',
     price: 'pago',
+    coords: [-33.6083, -54.371234],
   },
   {
     id: 4,
@@ -30,6 +33,7 @@ const places = [
     type: 'Plaza',
     wifi: 'si',
     price: 'gratis',
+    coords: [-31.6083, -54.371234],
   },
   {
     id: 5,
@@ -38,6 +42,7 @@ const places = [
     type: 'Bar',
     wifi: 'si',
     price: 'consumición',
+    coords: [-33.6083, -52.371234],
   },
 ];
 

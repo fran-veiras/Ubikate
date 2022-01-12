@@ -1,21 +1,34 @@
 import { Box, Heading, Icon } from '@chakra-ui/react';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { HiLocationMarker } from 'react-icons/hi';
-import L from 'leaflet';
-
-L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
-});
+import { useDispatch, useSelector } from 'react-redux';
+import { icon } from 'leaflet';
 
 export default function FrontMap() {
-  const position = [-34.6083, -58.371234];
+  const [LocationCoords, setLocationCoords] = useState([-34.6083, -58.371234]);
+
+  var position = LocationCoords;
+
+  const location = useSelector((state) => state.location.data);
+
+  useEffect(() => {
+    if (location[0]) {
+      setLocationCoords(location[0].coords);
+    } else {
+      return console.log('noup');
+    }
+  }, [location]);
+
+  const ICON = icon({
+    iconUrl: '/marker.png',
+    iconSize: [32, 32],
+  });
 
   return (
     <MapContainer
-      center={position}
+      center={LocationCoords}
       zoom={11}
       scrollWheelZoom={false}
       style={{ height: 700, width: '100%' }}
@@ -28,7 +41,7 @@ export default function FrontMap() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      <Marker position={position}>
+      <Marker icon={ICON} position={position}>
         <Popup>
           A pretty CSS3 popup. <br /> Easily customizable.
         </Popup>
