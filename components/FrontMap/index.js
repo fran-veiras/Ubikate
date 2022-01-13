@@ -1,34 +1,29 @@
 import { Box, Heading, Icon } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
-import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import markerIconPng from 'leaflet/dist/images/marker-icon.png';
 import { HiLocationMarker } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
-import { icon } from 'leaflet';
+import { LocationMarker } from './LocationMarker';
 
-export default function FrontMap() {
-  const [LocationCoords, setLocationCoords] = useState([-34.6083, -58.371234]);
+export default function FrontMap({ data }) {
+  // const [LocationCoords, setLocationCoords] = useState([-34.6083, -58.371234]);
 
-  var position = LocationCoords;
+  var position = [-34.6083, -58.371234];
 
-  const location = useSelector((state) => state.location.data);
+  // const location = useSelector((state) => state.location.data);
 
-  useEffect(() => {
-    if (location[0]) {
-      setLocationCoords(location[0].coords);
-    } else {
-      return console.log('noup');
-    }
-  }, [location]);
-
-  const ICON = icon({
-    iconUrl: '/marker.png',
-    iconSize: [32, 32],
-  });
+  // useEffect(() => {
+  //   if (location[0]) {
+  //     setLocationCoords(location[0].coords);
+  //   } else {
+  //     return console.log('noup');
+  //   }
+  // }, [location]);
 
   return (
     <MapContainer
-      center={LocationCoords}
+      center={position}
       zoom={11}
       scrollWheelZoom={false}
       style={{ height: 700, width: '100%' }}
@@ -41,11 +36,9 @@ export default function FrontMap() {
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
       />
-      <Marker icon={ICON} position={position}>
-        <Popup>
-          A pretty CSS3 popup. <br /> Easily customizable.
-        </Popup>
-      </Marker>
+      {data.data.map((val) => (
+        <LocationMarker key={val.id} position={val.coords} />
+      ))}
     </MapContainer>
   );
 }

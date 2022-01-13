@@ -20,7 +20,7 @@ export default function Home(data) {
         <Front />
         <Places places={data} />
         <Box my={20} width="100%" height="700px" overflow="hidden">
-          <FrontMap />
+          <FrontMap data={data} />
         </Box>
       </Container>
     </>
