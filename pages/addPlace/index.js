@@ -1,4 +1,6 @@
+import { Box, Container, Heading } from '@chakra-ui/react';
 import dynamic from 'next/dynamic';
+import { Header } from '../../components/Header';
 
 export default function AddPlace() {
   const AddPlaceComponent = dynamic(
@@ -9,11 +11,20 @@ export default function AddPlace() {
   );
 
   return (
-    <>
-      <h1>hola</h1>
-      <div>
+    <Container>
+      <Header />
+      <Heading variant="brand">
+        Gracias por aportar a esta comunidad hermosa.
+      </Heading>
+      <Box
+        borderRadius="15px"
+        my={20}
+        width="100%"
+        height="700px"
+        overflow="hidden"
+      >
         <AddPlaceComponent />
-      </div>
-    </>
+      </Box>
+    </Container>
   );
 }

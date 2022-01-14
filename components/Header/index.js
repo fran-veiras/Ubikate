@@ -1,4 +1,5 @@
 import { Box, Button, Container, Heading } from '@chakra-ui/react';
+import Link from 'next/link';
 import React from 'react';
 
 export const Header = () => {
@@ -13,7 +14,11 @@ export const Header = () => {
       justifyContent="space-between"
       alignItems="center"
     >
-      <Heading variant="brand">📍 Ubikate</Heading>
+      <Link href="/">
+        <Heading cursor="pointer" variant="brand">
+          📍 Ubikate
+        </Heading>
+      </Link>
       <Button variant="login">Login</Button>
     </Container>
   );
