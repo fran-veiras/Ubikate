@@ -1,10 +1,9 @@
 import { Box, Heading, Icon } from '@chakra-ui/react';
 import React, { useEffect, useState } from 'react';
 import { MapContainer, TileLayer, Marker, Popup } from 'react-leaflet';
-import markerIconPng from 'leaflet/dist/images/marker-icon.png';
-import { HiLocationMarker } from 'react-icons/hi';
 import { useDispatch, useSelector } from 'react-redux';
 import { icon } from 'leaflet';
+import * as GeoSearch from 'leaflet-geosearch';
 
 export default function FrontMap() {
   const [LocationCoords, setLocationCoords] = useState([-34.6083, -58.371234]);
