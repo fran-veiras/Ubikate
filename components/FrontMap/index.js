@@ -10,16 +10,6 @@ export default function FrontMap() {
 
   var position = LocationCoords;
 
-  const location = useSelector((state) => state.location.data);
-
-  useEffect(() => {
-    if (location[0]) {
-      setLocationCoords(location[0].coords);
-    } else {
-      return console.log('noup');
-    }
-  }, [location]);
-
   const ICON = icon({
     iconUrl: '/marker.png',
     iconSize: [32, 32],

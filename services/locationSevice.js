@@ -1,9 +1,7 @@
-const getLocation = async (id) => {
-  const res = await fetch(`http://localhost:3000/api/places`);
-  const data = await res.json();
-  const dataWithId = data.filter((val) => val.id === id);
+const getLocation = async (place) => {
+  const res = await place;
 
-  return dataWithId;
+  return res;
 };
 
 const locationApiActions = {
