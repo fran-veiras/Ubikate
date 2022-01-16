@@ -4,7 +4,7 @@ export const ButtonStyles = {
   variants: {
     login: {
       color: 'secondary',
-      background: 'details',
+      background: 'fourth',
       borderRadius: '15px',
     },
   },
