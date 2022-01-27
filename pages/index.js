@@ -1,8 +1,9 @@
-import { Box, Container, Heading } from '@chakra-ui/react';
+import { Box, Container } from '@chakra-ui/react';
 import { Front } from '../components/Front';
 import { Header } from '../components/Header';
 import { Places } from '../components/PlacesRecommendations';
 import dynamic from 'next/dynamic';
+import { Fragment } from 'react';
 
 export default function Home(data) {
   const FrontMap = dynamic(() => import('../components/FrontMap/index'), {
@@ -34,7 +35,8 @@ export default function Home(data) {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`https://ubikate.vercel.app/api/places`); //https://ubikate.vercel.app/api/places or http://localhost:3000/api/places
+  //https://ubikate.vercel.app/api/places or http://localhost:3000/api/places
+  const res = await fetch(`https://ubikate.vercel.app/api/places`);
   const data = await res.json();
 
   if (!data) {
