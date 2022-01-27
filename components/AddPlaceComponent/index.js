@@ -1,13 +1,7 @@
-import {
-  Map,
-  MapContainer,
-  Marker,
-  Popup,
-  TileLayer,
-  useMap,
-} from 'react-leaflet';
+import { MapContainer, TileLayer } from 'react-leaflet';
 import { SearchControl, OpenStreetMapProvider } from '../mapProviders/index';
 import '../../styles/Home.module.css';
+import LocationMarker from '../mapProviders/LocationMarker';
 
 export default function AddPlaceComponent() {
   const prov = OpenStreetMapProvider();
@@ -42,6 +36,7 @@ export default function AddPlaceComponent() {
           searchLabel={'Enter address, please'}
           keepResult={true}
         />
+        <LocationMarker />
       </MapContainer>
     </>
   );

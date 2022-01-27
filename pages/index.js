@@ -34,7 +34,7 @@ export default function Home(data) {
 }
 
 export async function getStaticProps(context) {
-  const res = await fetch(`http://localhost:3000/api/places`);
+  const res = await fetch(`https://ubikate.vercel.app/api/places`); //https://ubikate.vercel.app/api/places or http://localhost:3000/api/places
   const data = await res.json();
 
   if (!data) {

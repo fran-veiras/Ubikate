@@ -12,16 +12,6 @@ export default function AddPlace() {
     }
   );
 
-  const [coords, setCoords] = useState([]);
-
-  const location = useSelector((state) => state.location.data);
-
-  useEffect(() => {
-    setCoords([location.x, location.y]);
-  }, [location]);
-
-  console.log(coords);
-
   return (
     <Container>
       <Header />

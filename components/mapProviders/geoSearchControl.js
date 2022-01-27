@@ -1,25 +1,23 @@
 import { useEffect } from 'react';
 import { useMap } from 'react-leaflet';
 import { GeoSearchControl } from 'leaflet-geosearch';
-import { useDispatch } from 'react-redux';
-import * as locationActions from '../../app/locationReducer/locationReducer';
 
 const SearchControl = (props) => {
-  const dispatch = useDispatch();
-
-  const handleLocations = (place) => {
-    dispatch(locationActions.getData(place));
-  };
-
   const map = useMap();
 
+  // const handleLocations = (place) => {
+  //   dispatch(locationActions.getData(place));
+  // };
+
+  // function searchEventHandler(result) {
+  //   handleLocations(result.location);
+  // }
+
+  // useEffect(() => {
+  //   map.on('geosearch/showlocation', searchEventHandler);
+  // }, []);
+
   useEffect(() => {
-    function searchEventHandler(result) {
-      handleLocations(result.location);
-    }
-
-    map.on('geosearch/showlocation', searchEventHandler);
-
     const searchControl = new GeoSearchControl({
       provider: props.provider,
       ...props,
@@ -27,7 +25,9 @@ const SearchControl = (props) => {
 
     map.addControl(searchControl);
 
-    return () => map.removeControl(searchControl);
+    return () => {
+      map.removeControl(searchControl);
+    };
   }, [props]);
 
   return null;
